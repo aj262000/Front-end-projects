@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        
+       
+
+        .container{
+            display: flex;
+    
+            justify-content: center;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <h2>Paragraph</h2>
+            <input type="text" id="field">
+            <button id="btn">Generate</button>
+        </div>
+     <div id="empty"></div>
+    </div>
+
+
+
+
+    <script>
+
+        const input = document.getElementById("field");
+        const empty = document.getElementById("empty");
+        const button = document.getElementById("btn");
+
+        const text = [
+        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eleifend porta metus.`, 
+
+`Vestibulum ante ipsum prim.`,
+
+`Nullimentum erat. Duis a dui ut riCras at magna magna. Ut pellentesque metus id turpis congue, ac interdum dolor tincidunt.`,
+
+`Sed euismod, orci a dapibus laoreet, ut nisi bibendum nibh ornare rhoncus eget in dolor.`,
+
+`Prstique vel elit.`,
+
+`Suspendisse us. `,
+
+`Sed sodales faciliin fringilla urna eget quam dictum luctus. Ut laoreet imperdiet accumsan.`,
+        ];
+
+
+function shuffle(array) {
+  let currentIndex = array.length;
+
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
+        button.addEventListener("click", function(){
+      
+
+if(
+    isNaN(input.value) || input.value <= 0 || input.value > 7
+){
+    empty.innerHTML = "Invalid Input";
+}
+
+
+
+           else{
+            const localtext = shuffle(text);
+          const f = localtext.slice(0,input.value);
+        
+
+         
+         const n = f.map(
+              (d) => {
+                  return `<p> ${d} </p> `
+              }
+
+          )
+          empty.innerHTML = n.join("");
+            }
+
+            
+          
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+         width: 500px;
+         height: 500px;
+          margin-left: 50%;
+          margin-top: 20%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>
+        To DO LIST
+    </h1>
+
+    <div id="container">
+        <input type="text" id="field">
+        <button id="add">ADD</button>
+        <div id="show"></div>
+    </div>
+
+
+    <script>
+        let input = document.getElementById("field");
+        let button = document.getElementById("add");
+        let show = document.getElementById("show");
+
+        button.addEventListener("click",function(){
+         var para = document.createElement("p");
+         para.innerText = input.value;
+         show.appendChild(para)
+         input.value = "";
+
+        para.addEventListener("click", function(){
+            para.style.textDecoration = "line-through";
+         })
+
+         para.addEventListener("dblclick", function(){
+             show.removeChild(para)
+         })
+        })
+    </script>
+</body>
+</html>
